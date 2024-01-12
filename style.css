@@ -1,0 +1,37 @@
+* {
+  font-family: "Righteous", sans-serif;
+  /* outline: 1px solid #ff0000; */
+}
+
+.sign-up {
+  background-image: url(wallpaperflare.com_wallpaper.jpg);
+  background-position: center;
+}
+
+.group {
+  backdrop-filter: blur(20px);
+}
+
+input {
+  background-color: transparent;
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375em;
+  outline: 0px;
+}
+
+.btn-outline-info {
+  border-color: #175271;
+  color: #175271;
+}
+
+.btn-outline-info:hover {
+  background-color: #fcd97e;
+  border-color: rgba(255, 255, 255, 0.218);
+  backdrop-filter: blur(20px);
+}
