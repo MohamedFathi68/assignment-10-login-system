@@ -23,9 +23,8 @@ function userSignup() {
     userData.push(user);
     localStorage.setItem("userData", JSON.stringify(userData));
     clearForm();
-    alertMessage.setAttribute("class", "text-danger m-5 d-none alert-msg");
   } else {
-    alertMessage.setAttribute("class", "text-danger m-5 d-inline alert-msg");
+    alertMessage.classList.replace("d-none", "d-block");
   }
 }
 
