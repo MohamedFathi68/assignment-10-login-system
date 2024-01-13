@@ -19,7 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
       rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Login page</title>
   </head>
   <body>
     <section class="sign-up min-vh-100 p-1">
@@ -27,23 +27,23 @@
         <div class="group m-auto w-50 mt-5 p-5 border border-white border-opacity-25 rounded-2">
           <h1>Smart Login System</h1>
           <input
-            id="signupEmail"
+            id="signinEmail"
             class=" my-3"
             placeholder="Enter your email"
             type="email" />
 
           <input
-            id="signupPassword"
+            id="signinPassword"
             class=" my-3"
-            placeholder="Enter  password"
+            placeholder="Enter password"
             type="password" />
-          <p id="exist"></p>
+          <p id="incorrect"></p>
 
-          <button onclick="userSignup()" class="btn btn-outline-info w-25 my-3">
+          <button class="btn btn-outline-info w-25 my-3 login-btn">
             Sign in
           </button>
           <p class="">
-            creat a new account ? <a class="" href="/">Sign up</a>
+            creat a new account ? <a class="" href="/signup.html">Sign up</a>
           </p>
         </div>
       </div>
