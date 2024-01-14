@@ -1,29 +1,29 @@
 let signupName = document.getElementById("signupName");
 let signupEmail = document.getElementById("signupEmail");
 let signupPassword = document.getElementById("signupPassword");
+const userData = [];
+export { userData };
 
-export let userData = [];
+const signUpButton = document.getElementById("signUpBtn");
 
-var signUpButton = document.getElementById("signUpBtn");
-
-signUpButton.addEventListener("click", function () {
-  let alertMessage = document.querySelector("#alert");
-  if (validate()) {
-    let user = {
-      userName: signupName.value,
-      userEmail: signupEmail.value,
-      userPassword: signupPassword.value,
-    };
-    userData.push(user);
-    localStorage.setItem("userData", JSON.stringify(userData));
-    clearForm();
-    redirectTologin();
-    console.log(5);
-  } else {
-    alertMessage.classList.replace("d-none", "d-block");
-    console.log(2);
-  }
-});
+// signUpButton.addEventListener("click", function () {
+//   let alertMessage = document.querySelector("#alert");
+//   if (validate()) {
+//     let user = {
+//       userName: signupName.value,
+//       userEmail: signupEmail.value,
+//       userPassword: signupPassword.value,
+//     };
+//     userData.push(user);
+//     localStorage.setItem("userData", JSON.stringify(userData));
+//     clearForm();
+//     redirectTologin();
+//     console.log(5);
+//   } else {
+//     alertMessage.classList.replace("d-none", "d-block");
+//     console.log(2);
+//   }
+// });
 
 function clearForm() {
   signupName.value = "";
