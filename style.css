@@ -25,7 +25,7 @@ input {
   outline: 0px;
 }
 
-/* .btn-outline-info {
+.btn-outline-info {
   border-color: #175271;
   color: #175271;
 }
@@ -34,4 +34,4 @@ input {
   background-color: #fcd97e;
   border-color: rgba(255, 255, 255, 0.218);
   backdrop-filter: blur(20px);
-} */
+}

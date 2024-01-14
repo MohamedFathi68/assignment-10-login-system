@@ -18,18 +18,42 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="../style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>sign up page</title>
   </head>
   <body>
     <section class="sign-up min-vh-100 p-1">
-      <div
-        class="container text-center d-flex justify-content-center align-items-center">
+      <div class="container text-center">
         <div
-          class="group w-50 mt-5 p-5 border border-white border-opacity-25 rounded-2">
-          <h1>hello, <span class="session-name"></span></h1>
-          <p>Welcome to home page</p>
-          <button class="btn logout-btn btn-outline-primary">log out</button>
+          class="group m-auto w-50 mt-5 p-5 border border-white border-opacity-25 rounded-2">
+          <h1 class="mb-4">sign up</h1>
+
+          <input
+            id="signupName"
+            class="my-3"
+            placeholder="Enter your name"
+            type="text" />
+          <input
+            id="signupEmail"
+            class="my-3"
+            placeholder="Enter your email"
+            type="email" />
+          <p class="text-danger m-5 d-none alert-msg">* enter a valid email address</p>
+          <input
+            id="signupPassword"
+            class="my-3"
+            placeholder="Enter password"
+            type="password" />
+          <p id="exist"></p>
+
+          <button
+            onclick="userSignup()"
+            class="btn btn-outline-info w-25 my-3 signup-btn">
+            Sign Up
+          </button>
+          <p class="">
+            You have an account? <a class="" href="index.html">log in</a>
+          </p>
         </div>
       </div>
     </section>
