@@ -1,45 +1,4 @@
-// user sign up section
-let signupName = document.getElementById("signupName");
-let signupEmail = document.getElementById("signupEmail");
-let signupPassword = document.getElementById("signupPassword");
-
-let userData = [];
-
-function userSignup() {
-  let alertMessage = document.querySelector(".alert-msg");
-  if (validate()) {
-    let user = {
-      userName: signupName.value,
-      userEmail: signupEmail.value,
-      userPassword: signupPassword.value,
-    };
-    userData.push(user);
-    localStorage.setItem("userData", JSON.stringify(userData));
-    clearForm();
-    redirectTologin();
-  } else {
-    alertMessage.classList.replace("d-none", "d-block");
-  }
-}
-
-let signupButton = document.querySelector(".signup-btn");
-
-function clearForm() {
-  signupName.value = "";
-  signupEmail.value = "";
-  signupPassword.value = "";
-}
-
-function redirectTologin() {
-  location.href = "/index.html";
-}
-
-function validate() {
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  return emailRegex.test(signupEmail.value);
-}
-
-// user log in section
+import { userData } from "/signup/signup.js";
 
 let signinEmail = document.getElementById("signinEmail");
 let signinPassword = document.getElementById("signinPassword");
@@ -53,16 +12,14 @@ if (localStorage.getItem("userData") == null) {
 let loginEmail = signinEmail.value;
 let loginPassword = signinPassword.value;
 
-let sessionName = [];
-
-function login() {
+let loginButton = document.querySelector(".login-btn");
+loginButton.addEventListener("click", function () {
   for (let i = 0; i < userData.length; i++) {
     if (
-      userData[i].userEmail.match(loginEmail.toLowerCase()) &&
-      userData[i].userPassword.match(loginPassword.toLowerCase())
+      userData[i].userEmail === loginEmail &&
+      userData[i].userPassword === loginPassword
     ) {
       localStorage.setItem("sessionName", JSON.stringify(userData[i].userName));
-      
       redirectToHome();
     } else {
       document.getElementById("incorrect").innerHTML =
@@ -70,14 +27,6 @@ function login() {
     }
   }
   function redirectToHome() {
-    location.href = "/home.html";
+    window.location = "/home/index.html";
   }
-}
-let n = JSON.parse(localStorage.getItem("sessionName"))
-console.log(n);
-// document.querySelector(".session-name").innerHTML = ;
-
-let loginButton = document.querySelector(".login-btn");
-loginButton.addEventListener("click", login);
-
-console.log(localStorage.getItem("sessionName"));
+});
