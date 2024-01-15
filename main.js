@@ -1,4 +1,4 @@
-// user sign up section
+// ==================== user sign up section ====================
 let signupName = document.getElementById("signupName");
 let signupEmail = document.getElementById("signupEmail");
 let signupPassword = document.getElementById("signupPassword");
@@ -10,7 +10,7 @@ function userSignup() {
     document.getElementById('exist').innerHTML = '<span class="text-danger m-3">All inputs is required</span>'
   } else {
     if (isEmailExist()) {
-      document.getElementById('exist').innerHTML = '<span class="text-danger m-3">email already exists</span>'
+      document.getElementById('exist').innerHTML = '<span class="text-danger m-3">Email address already exists</span>'
     } else {
       if (validate()) {
         let user = {
@@ -49,15 +49,14 @@ function isEmpty() {
 
 function isEmailExist() {
   for (var i = 0; i < userData.length; i++) {
-    if (userData[i].email == signupEmail.value) {
+    if (userData[i].userEmail.toLowerCase() === signupEmail.value.toLowerCase()) {
       return true;
-    } else {
-      return false;
     }
   }
+  return false;
 }
 
-// user log in section
+// ==================== user log in section ====================
 
 let signinEmail = document.getElementById("signinEmail");
 let signinPassword = document.getElementById("signinPassword");
