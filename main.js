@@ -123,11 +123,12 @@ function redirectToHome() {
   location.href = "./home/index.html";
 }
 
+let loginButton = document.querySelector(".login-btn");
+loginButton.addEventListener("click", login);
+
 let sessionUser = JSON.parse(localStorage.getItem("sessionName"));
 document.getElementById("name").innerHTML += sessionUser;
 
-let loginButton = document.querySelector(".login-btn");
-loginButton.addEventListener("click", login);
 
 function logout() {
   localStorage.removeItem("sessionName");
