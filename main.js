@@ -34,7 +34,7 @@ function userSignup() {
 let signupButton = document.querySelector(".signup-btn");
 
 function redirectTologin() {
-  location.href = "/index.html";
+  location.href = "./index.html";
 }
 
 function validate() {
@@ -120,7 +120,7 @@ function isLoginEmpty() {
 }
 
 function redirectToHome() {
-  location.href = "/home/index.html";
+  location.href = "./home/index.html";
 }
 
 let sessionUser = JSON.parse(localStorage.getItem("sessionName"));
@@ -131,5 +131,5 @@ loginButton.addEventListener("click", login);
 
 function logout() {
   localStorage.removeItem("sessionName");
-  location.href = "/index.html";
+  location.href = "./index.html";
 }
