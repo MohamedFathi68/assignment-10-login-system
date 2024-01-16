@@ -7,10 +7,12 @@ let userData = [];
 
 function userSignup() {
   if (isEmpty()) {
-    document.getElementById('exist').innerHTML = '<span class="text-danger m-3">All inputs is required</span>'
+    document.getElementById("exist").innerHTML =
+      '<span class="text-danger m-3">All inputs is required</span>';
   } else {
     if (isEmailExist()) {
-      document.getElementById('exist').innerHTML = '<span class="text-danger m-3">Email address already exists</span>'
+      document.getElementById("exist").innerHTML =
+        '<span class="text-danger m-3">Email address already exists</span>';
     } else {
       if (validate()) {
         let user = {
@@ -22,7 +24,8 @@ function userSignup() {
         localStorage.setItem("userData", JSON.stringify(userData));
         redirectTologin();
       } else {
-        document.getElementById('exist').innerHTML = '<span class="text-danger m-3">enter a valid email address</span>'
+        document.getElementById("exist").innerHTML =
+          '<span class="text-danger m-3">Enter a valid email address</span>';
       }
     }
   }
@@ -40,7 +43,11 @@ function validate() {
 }
 
 function isEmpty() {
-  if (signupName.value == "" || signupEmail.value == "" || signupPassword.value == "") {
+  if (
+    signupName.value == "" ||
+    signupEmail.value == "" ||
+    signupPassword.value == ""
+  ) {
     return true;
   } else {
     return false;
@@ -49,7 +56,9 @@ function isEmpty() {
 
 function isEmailExist() {
   for (var i = 0; i < userData.length; i++) {
-    if (userData[i].userEmail.toLowerCase() === signupEmail.value.toLowerCase()) {
+    if (
+      userData[i].userEmail.toLowerCase() === signupEmail.value.toLowerCase()
+    ) {
       return true;
     }
   }
@@ -67,31 +76,60 @@ if (localStorage.getItem("userData") == null) {
   userData = JSON.parse(localStorage.getItem("userData"));
 }
 
-let loginEmail = signinEmail.value;
-let loginPassword = signinPassword.value;
-
 let sessionName = [];
 
 function login() {
-  for (let i = 0; i < userData.length; i++) {
-    let email = userData[i].userEmail;
-    let pass = userData[i].userPassword;
-    console.log(email, pass);
-    if (email === loginEmail && pass === loginPassword) {
-      localStorage.setItem("sessionName", JSON.stringify(userData[i].userName));
+  if (isLoginEmpty()) {
+    document.getElementById("incorrect").innerHTML =
+      '<span class="text-danger m-3">All inputs are required</span>';
+  } else {
+    let foundUser = null;
+
+    for (let i = 0; i < userData.length; i++) {
+      let user = userData[i];
+      if (
+        user.userEmail === signinEmail.value &&
+        user.userPassword === signinPassword.value
+      ) {
+        foundUser = true;
+        localStorage.setItem(
+          "sessionName",
+          JSON.stringify(userData[i].userName)
+        );
+        break; // Exit the loop once a match is found
+      } else {
+        foundUser = false;
+      }
+    }
+    console.log(foundUser);
+    if (foundUser == true) {
       redirectToHome();
     } else {
       document.getElementById("incorrect").innerText =
-        "incorrect email or password";
-      console.log(i);
+        "Incorrect email or password";
     }
   }
-  function redirectToHome() {
-    location.href = "/home/home.html";
+}
+
+function isLoginEmpty() {
+  if (signinEmail.value == "" || signinPassword.value == "") {
+    return true;
+  } else {
+    return false;
   }
 }
+
+function redirectToHome() {
+  location.href = "/home/index.html";
+}
+
+let sessionUser = JSON.parse(localStorage.getItem("sessionName"));
+document.getElementById("name").innerHTML += sessionUser;
+
 let loginButton = document.querySelector(".login-btn");
 loginButton.addEventListener("click", login);
 
-let sessionUser = JSON.parse(localStorage.getItem("sessionName"));
-// document.querySelector(".session-name").innerHTML += sessionUser;
+function logout() {
+  localStorage.removeItem("sessionName");
+  location.href = "/index.html";
+}
