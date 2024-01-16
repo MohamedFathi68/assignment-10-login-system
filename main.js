@@ -34,7 +34,7 @@ function userSignup() {
 let signupButton = document.querySelector(".signup-btn");
 
 function redirectTologin() {
-  location.href = "./index.html";
+  location.href = "../index.html";
 }
 
 function validate() {
@@ -123,14 +123,10 @@ function redirectToHome() {
   location.href = "./home/index.html";
 }
 
-let loginButton = document.querySelector(".login-btn");
-loginButton.addEventListener("click", login);
-
 let sessionUser = JSON.parse(localStorage.getItem("sessionName"));
 document.getElementById("name").innerHTML += sessionUser;
 
-
 function logout() {
   localStorage.removeItem("sessionName");
-  location.href = "./index.html";
+  location.href = "../index.html";
 }
